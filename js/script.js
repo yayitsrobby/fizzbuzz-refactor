@@ -1,41 +1,36 @@
 
-
+// count from 1 to that number
 function fizzBuzzCount(input) {
-
-}
-
-// will return true value if number
-function fizzBuzzTest(number) {
-	// parseInt 
-	if (number === NaN) {
-		return false;
-	} else {
-		return true; 
+	
+	for(var i = 1; i <= input; i++) {
+		var wordToPrint = "";
+		// replace divis by 3 with fizz
+		if(!(i % 3)) {
+			wordToPrint += "Fizz";
+		} 
+		// replace divis by 5 with buzz
+		// replace divis by 3 AND 5 with fizzbuzz
+		if (!(i % 5)) {
+			wordToPrint += "Buzz";
+		}
+		if ((i % 3) && (i % 5)) {
+			wordToPrint += i;
+		}
+		// print this all to html
+		$("body").append("<p>" + wordToPrint + "</p>");
 	}
-	// if NaN keep false / else return true
-	// modulus 1 for decimal value
 }
 
 $(document).ready(function() {
 // prompt for a number
 	var userInput = parseInt(prompt("Please enter a number"));
+	console.log(userInput);
 // prompts to make sure its a number
-	while (fizzBuzzTest(userInput) !== true) {
+	while (isNaN(userInput)) {
 		userInput = parseInt(prompt("Not a number, Please enter a number"));
+		console.log(userInput);
 	}
 
-// count from 1 to that number
-
-
-// replace divis by 3 with fizz
-// replace divis by 5 with buzz
-// replace divis by 3 AND 5 with fizzbuzz
-
-
-// print this all to html
-
-
-
-
+	fizzBuzzCount(userInput);
 
 });
